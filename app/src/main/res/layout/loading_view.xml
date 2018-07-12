@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loading_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <!--<ProgressBar-->
+        <!--style="@android:style/Widget.ProgressBar.Small"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--/>-->
+
+    <LinearLayout
+        android:id="@+id/contentWrap"
+        style="@style/qmui_tip_dialog_wrap"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+        <com.fz.framework.views.progress.QMUILoadingView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加载中..."
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+</RelativeLayout>

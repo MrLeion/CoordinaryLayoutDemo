@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.tzl.example.AlipayWidgets.APHeaderView
+        android:id="@+id/alipay_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.tzl.example.AlipayWidgets.APSnapView
+            android:id="@id/alipay_snap"
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:background="#2484CF">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/snap"/>
+
+        </com.tzl.example.AlipayWidgets.APSnapView>
+
+        <LinearLayout
+            android:id="@+id/alipay_grid_menu"
+            android:layout_width="match_parent"
+            android:layout_height="211dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/grid"/>
+
+        </LinearLayout>
+
+        <com.tzl.example.AlipayWidgets.APSnapView
+            android:id="@id/alipay_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#2484CF">
+
+            <ImageView
+                android:id="@+id/bar2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bar2"/>
+
+            <ImageView
+                android:id="@+id/bar1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bar1"/>
+
+
+        </com.tzl.example.AlipayWidgets.APSnapView>
+
+    </com.tzl.example.AlipayWidgets.APHeaderView>
+
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        app:layout_behavior="com.tzl.example.AlipayWidgets.APScrollingBehavior"
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlEnableNestedScrolling="true"
+        app:srlEnableLoadMore="true"
+        app:srlHeaderMaxDragRate="2.5"
+        app:srlPrimaryColor="@android:color/darker_gray">
+        <!--srlAccentColor srlPrimaryColor 将会改变 Header 和 Footer 的主题颜色-->
+        <!--srlEnablePreviewInEditMode 可以开启和关闭预览功能-->
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+            <!--todo:合并-->
+            <com.tzl.example.AlipayWidgets.MultipleStatusView
+                android:id="@+id/multipleStatusViewItem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/alipay_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.tzl.example.AlipayWidgets.MultipleStatusView>
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
