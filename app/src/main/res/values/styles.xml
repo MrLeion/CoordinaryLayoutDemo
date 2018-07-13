@@ -40,4 +40,15 @@
         <item name="android:background">@drawable/qmui_tip_dialog_bg</item>
     </style>
 
+
+    <style name="MyBottomNavigationStyle" parent="Widget.Design.BottomNavigationView">
+        //ripple的颜色
+        <item name="colorControlHighlight">@android:color/holo_red_light</item>
+        //选中时的颜色
+        <item name="colorPrimary">@android:color/holo_green_dark</item>
+        //未选中的颜色
+        <item name="android:textColorSecondary" >@android:color/black</item>
+    </style>
+
+
 </resources>

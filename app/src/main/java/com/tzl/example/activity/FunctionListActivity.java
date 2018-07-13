@@ -34,6 +34,11 @@ public class FunctionListActivity extends AppCompatActivity {
     }
 
 
+    public void jump2Bottom(View view) {
+        startActivity(new Intent(this, BottomNavigationViewActivity.class));
+    }
+
+
     public void jump2CustomeBehavior(View view) {
         startActivity(new Intent(this, CustomeBehaviorActivity.class));
     }
@@ -55,6 +60,10 @@ public class FunctionListActivity extends AppCompatActivity {
 
     public void jump2Weibo(View view) {
         startActivity(new Intent(this,WeiboActivity.class));
+    }
+
+    public void jump2EditText(View view) {
+        startActivity(new Intent(this,EditTextActivity.class));
     }
 
 

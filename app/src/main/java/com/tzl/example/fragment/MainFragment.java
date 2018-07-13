@@ -162,7 +162,6 @@ public class MainFragment extends Fragment {
 
         public AlipayItemViewHolder(View itemView) {
             super(itemView);
-            titleTv = (TextView) itemView;
         }
     }
 
@@ -175,11 +174,9 @@ public class MainFragment extends Fragment {
     public static class AlipayAdapter extends BaseQuickAdapter<String,MainFragment.AlipayItemViewHolder> {
 
 
-        private final List<String> mTitles;
 
         public AlipayAdapter(List<String> titles) {
             super(R.layout.item_content, titles);
-            mTitles = titles;
         }
 
         @Override

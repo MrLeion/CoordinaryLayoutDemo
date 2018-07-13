@@ -35,6 +35,10 @@
         </activity>
         <activity android:name="com.tzl.example.activity.NestedScrollingActivity">
         </activity>
+        <activity android:name="com.tzl.example.activity.BottomNavigationViewActivity">
+        </activity>
+        <activity android:name="com.tzl.example.activity.EditTextActivity">
+        </activity>
     </application>
 
 </manifest>

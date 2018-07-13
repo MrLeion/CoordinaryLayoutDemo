@@ -28,6 +28,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:onClick="jump2Bottom"
+        android:text="BottomViewnavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
     <Button
         android:onClick="jump2CustomeBehavior"
@@ -67,6 +73,12 @@
     <Button
         android:onClick="jump2AlipayHome"
         android:text="高仿 支付宝首页"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="jump2EditText"
+        android:text="EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
