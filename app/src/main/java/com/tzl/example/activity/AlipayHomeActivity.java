@@ -15,5 +15,7 @@ public class AlipayHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         MainFragment mainFragment = new MainFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fl_container, mainFragment).commitAllowingStateLoss();
+
+
     }
 }
