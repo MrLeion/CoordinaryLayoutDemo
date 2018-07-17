@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CoordinarLayoutDemo.iml" filepath="$PROJECT_DIR$/CoordinarLayoutDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shimmerlibrary/shimmerlibrary.iml" filepath="$PROJECT_DIR$/shimmerlibrary/shimmerlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhihulibrary/zhihulibrary.iml" filepath="$PROJECT_DIR$/zhihulibrary/zhihulibrary.iml" />
     </modules>
   </component>
 </project>

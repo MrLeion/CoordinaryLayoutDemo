@@ -42,6 +42,8 @@ public class APSnapView extends RelativeLayout {
         mOffsetHelper = new ATViewOffsetHelper(mContent);
     }
 
+
+
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();

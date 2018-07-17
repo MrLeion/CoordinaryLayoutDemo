@@ -21,6 +21,8 @@ import com.tzl.example.AlipayWidgets.CommonListDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
+import tzl.com.shimmerlibrary.ShimmerRecyclerView;
+
 /**
  * author: tangzenglei
  * created on: 2018/7/5 上午10:29
@@ -29,25 +31,26 @@ import java.util.List;
 public class MainFragment extends Fragment {
 
 
-    RecyclerView  mRecyclerView;
+    ShimmerRecyclerView mRecyclerView;
     //    SwipeRefreshLayout mRefreshLayout;
-    APHeaderView  mHeaderView;
-    AlipayAdapter mAdapter;
+    APHeaderView        mHeaderView;
+    AlipayAdapter       mAdapter;
+    private TextView tv_more;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
+        tv_more = (TextView) view.findViewById(R.id.tv_more);
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.alipay_rv);
+        mRecyclerView = (ShimmerRecyclerView) view.findViewById(R.id.alipay_rv);
         mHeaderView = (APHeaderView) view.findViewById(R.id.alipay_header);
-
         final LinearLayoutManager lm = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false) {
 
             @Override
@@ -85,12 +88,9 @@ public class MainFragment extends Fragment {
         }
 
         View header = View.inflate(this.getContext(), R.layout.alipay_header, null);
-
-
         mRecyclerView.setLayoutManager(lm);
         mAdapter = new AlipayAdapter(titles);
         mAdapter.addHeaderView(header);
-        mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -108,6 +108,22 @@ public class MainFragment extends Fragment {
                         behavior.checkSnap((CoordinatorLayout) mHeaderView.getParent(), mHeaderView);
                     }
                 }
+            }
+        });
+
+        mRecyclerView.showShimmerAdapter();
+        mRecyclerView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mRecyclerView.setAdapter(mAdapter);
+                mRecyclerView.hideShimmerAdapter();
+            }
+        }, 3000);
+
+        tv_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(this,));
             }
         });
     }
@@ -154,15 +170,9 @@ public class MainFragment extends Fragment {
                 return dy;
             }
         });
-    }
 
-    static class AlipayItemViewHolder extends  BaseViewHolder{
 
-        TextView titleTv;
 
-        public AlipayItemViewHolder(View itemView) {
-            super(itemView);
-        }
     }
 
 
@@ -171,7 +181,8 @@ public class MainFragment extends Fragment {
 
 
 
-    public static class AlipayAdapter extends BaseQuickAdapter<String,MainFragment.AlipayItemViewHolder> {
+
+    public static class AlipayAdapter extends BaseQuickAdapter<String,BaseViewHolder> {
 
 
 
@@ -180,8 +191,8 @@ public class MainFragment extends Fragment {
         }
 
         @Override
-        protected void convert(AlipayItemViewHolder helper, String item) {
-            helper.titleTv.setText(item);
+        protected void convert(BaseViewHolder helper, String item) {
+            helper.setText(R.id.tv,item);
         }
 
 

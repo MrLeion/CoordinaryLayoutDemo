@@ -45,14 +45,14 @@ public class APScrollingBehavior extends ATHeaderScrollingViewBehavior {
     }
 
     @Override
-    public boolean onDependentViewChanged(CoordinatorLayout parent, final View child, View dependency) {
+    public boolean onDependentViewChanged(CoordinatorLayout
+                                                      parent, final View child, View dependency) {
         APHeaderView header = findFirstDependency(parent.getDependencies(child));
         if (header != null) {
             CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) header.getLayoutParams();
             CoordinatorLayout.Behavior behavior = lp.getBehavior();
             if (behavior instanceof APHeaderView.Behavior) {
-                APHeaderView.Behavior headerBehavior = (APHeaderView.Behavior) behavior;
-                int offset = headerBehavior.getTopAndBottomOffset();
+                //紧随其后
                 ViewCompat.offsetTopAndBottom(child, (dependency.getBottom() - child.getTop()));
             }
         }
@@ -73,10 +73,8 @@ public class APScrollingBehavior extends ATHeaderScrollingViewBehavior {
         if (header != null) {
             // Offset the rect by the child's left/top
             rectangle.offset(child.getLeft(), child.getTop());
-
             final Rect parentRect = mTempRect1;
             parentRect.set(0, 0, coordinatorLayout.getWidth(), coordinatorLayout.getHeight());
-
             if (!parentRect.contains(rectangle)) {
                 // If the rectangle can not be fully seen the visible bounds, collapse
                 // the AppBarLayout

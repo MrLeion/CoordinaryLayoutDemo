@@ -26,20 +26,27 @@
 
         </com.tzl.example.AlipayWidgets.APSnapView>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/alipay_grid_menu"
             android:layout_width="match_parent"
-            android:layout_height="211dp"
-            android:orientation="vertical">
+            android:layout_height="211dp">
 
             <ImageView
+                android:layout_centerInParent="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/grid"/>
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/tv_more"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
 
-        <com.tzl.example.AlipayWidgets.APSnapView
+        </RelativeLayout>
+
+        <com.tzl.example.AlipayWidgets.APBarView
             android:id="@id/alipay_bar"
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -58,7 +65,7 @@
                 android:src="@drawable/bar1"/>
 
 
-        </com.tzl.example.AlipayWidgets.APSnapView>
+        </com.tzl.example.AlipayWidgets.APBarView>
 
     </com.tzl.example.AlipayWidgets.APHeaderView>
 
@@ -74,6 +81,7 @@
         app:srlPrimaryColor="@android:color/darker_gray">
         <!--srlAccentColor srlPrimaryColor 将会改变 Header 和 Footer 的主题颜色-->
         <!--srlEnablePreviewInEditMode 可以开启和关闭预览功能-->
+
         <com.scwang.smartrefresh.layout.header.ClassicsHeader
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -84,14 +92,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <android.support.v7.widget.RecyclerView
+                <tzl.com.shimmerlibrary.ShimmerRecyclerView
+                    android:background="@color/white"
                     android:id="@+id/alipay_rv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
+
             </com.tzl.example.AlipayWidgets.MultipleStatusView>
+
+
         <com.scwang.smartrefresh.layout.footer.ClassicsFooter
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 

@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.kyleduo.alipayhome.R;
-import com.tzl.example.holder.HomeHolder;
 
 /**
  * author: tangzenglei
@@ -35,23 +35,20 @@ public class HomeFragment extends Fragment {
         RecyclerView rv = (RecyclerView) view.findViewById(R.id.recyclerView);
         rv.setAdapter(new Adapter());
         return view;
-
-
     }
 
 
 
 
-    class Adapter extends BaseQuickAdapter<String,HomeHolder> {
+    class Adapter extends BaseQuickAdapter<String,BaseViewHolder> {
 
         public Adapter() {
             super(R.layout.item_home);
         }
 
         @Override
-        protected void convert(HomeHolder helper, String item) {
-
-//            helper.textView.setText(item);
+        protected void convert(BaseViewHolder helper, String item) {
+            helper.setText(R.id.tv,item);
 
         }
     }
